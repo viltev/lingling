@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ling Ling the Panda</title>
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <script src="javascript/jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        //your script code goes here
+
+        $("#name_submit").click(function () {
+          $("#name").html($("#name_box").val());
+          $("#description").html($("#description_box").val());
+        });
+
+        $("#name").click(function () {
+          $("#name").css("font-size", "50px");
+          $("#name").css("text-shadow", "5px 5px gray");
+        });
+
+        $("#description").click(function () {
+          $("#description").css("color", "orange");
+          $("#description").css("opacity", "0");
+          $("#description").css("transition", "opacity 2s ease-in-out");
+        });
+
+        $("#toggle_button").click(function () {
+          $(".panel").toggleClass("spring-fairies");
+        });
+
+        $("#image_button").click(function () {
+          $("img").animate({ height: 300, width: 300, opacity: 0.4 }, "slow");
+          $("img").attr("src", "images/tito.png");
+        });
+        $("#reset_button").click(function () {
+          $("#name").html("Ling Ling the Panda");
+          $("#name").css("font-size", "16px");
+          $("#name").css("text-shadow", "none");
+          $("#description").html("This is the description");
+          $("#description").css("opacity", "1");
+          $(".text").css({ "font-size": "1", color: "black" });
+          $("#image").animate({ height: 100, width: 100 }, "fast");
+          $("#image").css({ opacity: "1" });
+          $("#image").attr("src", "images/ling-ling.png");
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="panel">
+      <img
+        id="image"
+        src="images/ling-ling.png"
+        height="100"
+        width="100"
+        onclick="alert('labas, ką gero?')"
+      />
+      <p class="text" id="name">Ling Ling the Panda</p>
+      <p class="text" id="description">This is the description</p>
+    </div>
+    <button id="toggle_button">Toggle Style</button>
+    <button id="image_button">Resize Image</button>
+    <button id="reset_button">Reset</button>
+    <br />
+    Name: <input id="name_box" type="text" value="" />
+    <br />
+    Description: <input id="description_box" type="text" value="" />
+    <button id="name_submit">Submit</button>
+  </body>
+</html>
